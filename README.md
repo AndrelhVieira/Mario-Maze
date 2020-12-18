@@ -3,9 +3,9 @@
 2 - Verificar conteúdo; --> OK
 
 <!-- To do in main.css -->
-1 - Estilizar após concluir os critérios acima;
-2 - Adicionar o tema principal ao jogo;
+1 - Estilizar após concluir os critérios acima; --> OK
+2 - Adicionar o tema principal ao jogo; --> OK
 
 <!-- To add -->
 1 - Vitória;
-2 - Instruções iniciais ao jogador;
+2 - Instruções iniciais ao jogador; --> OK

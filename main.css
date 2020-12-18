@@ -1,30 +1,48 @@
 body {
     font-family: 'Hammersmith One', sans-serif;
-    background-color: tomato;
-    /* background-image: url(background.png);
+    background-image: url(images/bg.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed; */
-    color: #fff;
+    height: 100vh;
+    color: #2B2A29;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.35);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 header {
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 header h1 {
     font-size: 50px;
-    margin: 15px;
+    margin-top: 20px;
+    margin-bottom: 0;
 }
 
 header h2 {
     font-size: 20px;
     font-weight: 500;
+    margin: 0;
 }
 
 section#section {
-    margin-top: 20px;
+    margin-top: 5px;
+    position: relative;
+    z-index: 2;
 }
 
 .row {
@@ -38,29 +56,173 @@ section#section {
 }
 
 .start {
-    background-color: blue;
+    background-image: url(images/cano.png);
+    background-size: cover;
 }
 
 .finish {
-    background-color: red;
+    background-image: url(images/princess.png);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .wall {
-    background-color: black;
+    background-image: url(images/block.png);
+    background-size: cover;
 }
 
-.player {
-    background-color: chartreuse;
+@keyframes slideUp {
+    from {
+        margin-top: 30px;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        margin-top: -30px;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        margin-left: 30px;
+    }
+    to {
+        margin-left: 0;
+    }
+}
+
+@keyframes slideRight {
+    from {
+        margin-left: -30px;
+    }
+    to {
+        margin-left: 0;
+    }
+}
+
+.playerY {
+    background-image: url(images/marioParado.png);
+    background-size: cover;
     width: 30px;
     height: 30px;
+    animation-duration: 200ms;
+}
+
+.playerX {
+    background-image: url(images/marioAndando.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    animation-duration: 200ms;
 }
 
 section#section button#btnStart {
     display: block;
     margin: 10px auto;
+    background-color: #c28e4d;
+    border: 3px solid #c28e4d;
+    color: #2B2A29;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 15px;
+    box-shadow: 0px 0px 10px 1px black;
+}
+
+section#section button#btnStart:hover {
+    cursor: pointer;
+    border: 3px solid #6d5d12;
+    transform: scale(1.1);
+    transition: 0.5s;
 }
 
 .erro {
-    width: 80vw;
-    margin: 0 auto;
+    display: block;
+    width: 350px;
+    height: 25px;
+    margin: 5px auto;
+    text-align: center;
+    line-height: 25px;
+    font-size: 20px;
+    border: 4px solid red;
+    color: black;
+    background-color: rgba(245, 79, 79, 0.527);
+}
+
+section#section div#arrows {
+    text-align: center;
+    margin: 50px;
+}
+
+section#section div#arrows img {
+    width: 50px;
+    margin: 10px;
+}
+
+section#section div#arrows img#down {
+    transform: rotate(90deg);
+}
+
+section#section div#arrows img#left {
+    transform: rotate(270deg);
+}
+
+section#section div#arrows img#right {
+    transform: rotate(180deg);
+}
+
+div.vitoria {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+div.vitoria button.btnAgain {
+    display: block;
+    margin: 10px auto;
+    background-color: #c28e4d;
+    border: 3px solid #c28e4d;
+    color: #2B2A29;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    box-shadow: 0px 0px 10px 1px black;
+}
+
+div.vitoria button.btnAgain:hover {
+    cursor: pointer;
+    border: 3px solid #6d5d12;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+div.vitoria h2 {
+    font-size: 30px;
+    margin: 5px auto;
+    display: block;
+    width: 500px;
+    height: 50px;
+    line-height: 50px;
+    border: 4px solid greenyellow;
+    color: black;
+    background: rgba(172, 255, 47, 0.555);
+}
+
+.castle {
+    width: 320px;
+    margin: 0 50px;
+}
+
+.mario {
+    width: 80px;
+}
+
+.princess {
+    width: 60px;
 }
