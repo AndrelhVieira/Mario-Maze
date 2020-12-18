@@ -71,6 +71,13 @@ section#section {
     background-size: cover;
 }
 
+.cogumelo {
+    background-image: url(images/cogumelo.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+}
+
 @keyframes slideUp {
     from {
         margin-top: 30px;

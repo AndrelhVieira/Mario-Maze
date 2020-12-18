@@ -1,19 +1,19 @@
 /* Declarações */
 const map = [
     "WWWWWWWWWWWWWWWWWWWWW   ",
-    "W   W     W     W W W   ",
+    "W   W     WC    W W W   ",
     "W W W WWW WWWWW W W W   ",
-    "W W W   W     W W   W   ",
+    "W WCW   W     W W   W   ",
     "W WWWWWWW W WWW W W W   ",
     "W         W     W W W   ",
     "W WWW WWWWW WWWWW W W   ",
     "W W   W   W W     W WWWW",
     "W WWWWW W W W WWW W   FW",
     "S     W W W W W W WWWWWW",
-    "WWWWW W W W W W W W W   ",
+    "WWWWW W W W W W W WCW   ",
     "W     W W W   W W W W   ",
     "W WWWWWWW W WWW W W W   ",
-    "W       W       W   W   ",
+    "W      CW       W   W   ",
     "WWWWWWWWWWWWWWWWWWWWW   ",
 ];
 const section = document.getElementById('section');
@@ -49,6 +49,9 @@ const criaDivs = (arr) => {
                 div.id = `${i}-${j}`;
             } else if (arr[i][j] === 'F') {
                 div.classList.add('finish');
+                div.id = `${i}-${j}`;
+            } else if (arr[i][j] === 'C') {
+                div.classList.add('cogumelo');
                 div.id = `${i}-${j}`;
             } else {
                 div.id = `${i}-${j}`;
@@ -105,6 +108,16 @@ const verificaUp = () => {
         player.classList.remove('playerX');
         player.classList.add('playerY');
         player.style.animationName = "slideUp";
+    } else if (arrLetters[linhaAtual - 1][colunaAtual] === 'C') {
+        let quadradoY = document.getElementById(`${linhaAtual - 1}-${colunaAtual}`);
+        quadradoY.appendChild(player);
+        linhaAtual--;
+        error.innerHTML = '';
+        error.style.visibility = 'hidden';
+        player.classList.remove('playerX');
+        player.classList.add('playerY');
+        player.style.animationName = "slideUp";
+        quadradoY.classList.remove('cogumelo');
     } else {
         erro();
     }
@@ -120,6 +133,16 @@ const verificaDown = () => {
         player.classList.remove('playerX');
         player.classList.add('playerY');
         player.style.animationName = "slideDown";
+    } else if (arrLetters[linhaAtual + 1][colunaAtual] === 'C') {
+        let quadradoY = document.getElementById(`${linhaAtual + 1}-${colunaAtual}`);
+        quadradoY.appendChild(player);
+        linhaAtual++;
+        error.innerHTML = '';
+        error.style.visibility = 'hidden';
+        player.classList.remove('playerX');
+        player.classList.add('playerY');
+        player.style.animationName = "slideDown";
+        quadradoY.classList.remove('cogumelo');
     } else {
         erro();
     }
@@ -134,8 +157,16 @@ const verificaLeft = () => {
         error.innerHTML = '';
         player.classList.add('playerX');
         player.style.animationName = "slideLeft";
-        
-    } else {
+    } else if (arrLetters[linhaAtual][colunaAtual - 1] === 'C'){
+        let quadradoLado = document.getElementById(`${linhaAtual}-${colunaAtual - 1}`);
+        quadradoLado.appendChild(player);
+        colunaAtual--;
+        error.style.visibility = 'hidden';
+        error.innerHTML = '';
+        player.classList.add('playerX');
+        player.style.animationName = "slideLeft";
+        quadradoLado.classList.remove('cogumelo');
+    } else{
         erro();
     }
 }
@@ -158,6 +189,15 @@ const verificaRight = () => {
         player.classList.add('playerX');
         player.style.animationName = "slideRight";
         anunciaVitoria();
+    } else if (arrLetters[linhaAtual][colunaAtual + 1] === 'C'){
+        let quadradoLado = document.getElementById(`${linhaAtual}-${colunaAtual + 1}`);
+        quadradoLado.appendChild(player);
+        colunaAtual++;
+        error.style.visibility = 'hidden';
+        error.innerHTML = '';
+        player.classList.add('playerX');
+        player.style.animationName = "slideRight";
+        quadradoLado.classList.remove('cogumelo');
     } else {
         erro();
     }
